@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>www.s3c</title>
+</head>
+<body>
+<h1>wsc</h1>
+<p>
+    <b>TO:</b> <span id="to"></span><br>
+    <b>NAME:</b><span id="name"></span><br>
+    <b>HEADING:</b><span id="heading"></span><br>
+</p>
+
+</body>
+</html>
+<script>
+    if(window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+
+    }
+    xmlhttp.open("GET","div.xml",false);
+    xmlhttp.send();
+    xmlDoc=xmlhttp.responseXML;
+    document.getElementById("to").innerHTML=
+        xmlDoc.getElementsByTagName("to")[0].childNodes[0].nodeValue;
+    document.getElementById("name").innerHTML=
+        xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+    document.getElementById("heading").innerHTML=
+        xmlDoc.getElementsByTagName("body")[0].childNodes[0].nodeValue;
+</script>
